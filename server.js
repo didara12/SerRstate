@@ -41,8 +41,6 @@ app.use('/cust/auth',passport.authenticate('jwt', {session:false , failureRedire
 
 
 app.get('/fail',(req,res)=>{
-   console.log('fail ')
-
    res.json({error: 'fail'})
 })
 
@@ -62,11 +60,11 @@ app.get('/', (req, res) => {
    // console.log(` home::::::Request from ${clientIp}, User-Agent: ${userAgent}`);
 
    
-    const data = await Real_state.find();
+    const data = await Real_state.find(); // data instense of arry or object
     res.status(200).json({data})
-
+   
  })
- 
+
 
  app.get('/Rapp/:id', async (req,res)=>{
    const id = req.params.id

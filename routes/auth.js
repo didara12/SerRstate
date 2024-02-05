@@ -74,6 +74,24 @@ authRoute.post('/auth/add', upload.array('images', 6),async(req,res)=>{
 })
 
 
+authRoute.post('/auth/delete', async (req,res)=>{
+    try{
+        const {_id} = req.body
+        const vdata = await Real_state.deleteOne({_id})
+
+        let data = []
+        if(typeof vdata === "object"){
+            data.push(vdata)
+        }else{
+            data = vdata
+        }
+
+        res.json(data)
+    
+    }catch(e){
+        console.log(e.message)
+    }
+})
 
 
 module.exports = authRoute

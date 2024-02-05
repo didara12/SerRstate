@@ -1,6 +1,6 @@
 const express = require('express')
 const yup = require('yup')
-const users = require('../DB/connecte')
+const {users} = require('../DB/connecte')
 const bcrypt = require('bcryptjs')
 const conf = require('../config')
 const passport = require('passport')
@@ -26,6 +26,7 @@ const usersShema = yup.object({
 generalRoute.post('/signUp',async (req,res)=>{
     try{
         const obj  = req.body
+        console.log(obj)
         await usersShema.validate(obj)
 
         const data = await  users.findOne({$or:[{username:obj.username},{email:obj.email}]})
