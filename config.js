@@ -9,7 +9,7 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
-
+ 
 const conf = (passport)=>{
     //local
     try{

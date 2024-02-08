@@ -23,7 +23,7 @@ authRoute.post('/auth/add', upload.array('images', 6),async(req,res)=>{
     const formikValues = req.body; // Assuming form data is sent in the request body
 
 
-    const images = req.files.map(file => `http://localhost:5000/${file.filename}`)
+    const images = req.files.map(file => `http://localhost:5000/uploads/${file.filename}`)
 
         try {
             const villaData = {
@@ -80,7 +80,7 @@ authRoute.post('/auth/delete', async (req,res)=>{
         const vdata = await Real_state.deleteOne({_id})
 
         let data = []
-        if(typeof vdata === "object"){
+        if(typeof vdata === "object"){ // i tanke this is wrong, bc [] and {} both return object ... ask 
             data.push(vdata)
         }else{
             data = vdata

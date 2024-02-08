@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 // mongoose.connect("mongodb://localhost:27017/Rstate")
 mongoose.connect("mongodb+srv://didara:did1245698523ARA@cluster0.fkiaij8.mongodb.net/")
-//mongodb+srv://didara:did1245698523ARA@cluster0.fkiaij8.mongodb.net/
+
 const userShema = new mongoose.Schema({
     username: "String",
     email: "String",
